@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Release Mains</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @release_mains.each do |release_main| %>
+      <tr>
+        <td><%= link_to 'Show', release_main %></td>
+        <td><%= link_to 'Edit', edit_release_main_path(release_main) %></td>
+        <td><%= link_to 'Destroy', release_main, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Release Main', new_release_main_path %>

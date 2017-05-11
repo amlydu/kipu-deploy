@@ -1,0 +1,2 @@
+class ReleaseMain < ApplicationRecord
+end

@@ -1,0 +1,17 @@
+<%= form_with(model: release_main, local: true) do |form| %>
+  <% if release_main.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(release_main.errors.count, "error") %> prohibited this release_main from being saved:</h2>
+
+      <ul>
+      <% release_main.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

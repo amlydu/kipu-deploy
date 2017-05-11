@@ -1,0 +1,2 @@
+module ReleaseMainsHelper
+end
