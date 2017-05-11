@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :logs
   resources :releases
   resources :release_mains
   resources :instances
