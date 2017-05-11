@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511234858) do
+ActiveRecord::Schema.define(version: 20170511235427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20170511234858) do
     t.bigint "release_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "lambda_name"
+    t.text "log"
+    t.bigint "time"
     t.index ["release_id"], name: "index_logs_on_release_id"
   end
 
