@@ -5,13 +5,13 @@ class Log < ApplicationRecord
 
   def broadcast_data
     instance = self.release.instance
-    ActionCable.server.broadcast "instance_#{instance.id}_channel", data: render_data(self)
-    ActionCable.server.broadcast "instance__channel", data: {instance_id: instance.id, div: render_data }
+    ActionCable.server.broadcast "instance_#{instance.id}_channel", data: render_data(instance)
+    ActionCable.server.broadcast "instance__channel", data: {instance_id: instance.id, div: render_data(instance) }
   end
 
   private
 
-  def render_data
-    ApplicationController.renderer.render(partial: 'instances/instance', locals: { instance: self.release.instance })
+  def render_data(inst)
+    ApplicationController.renderer.render(partial: 'instances/instance_box', locals: { instance: inst })
   end
 end
