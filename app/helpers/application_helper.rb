@@ -20,7 +20,7 @@ module ApplicationHelper
     progress_status = progress_status.downcase unless progress_status.nil?
 
     case progress_status
-    when 'migrate_app', 'command'
+    when 'migrate_app', 'command', 'invoke'
       'progress-bar-info' #blue
     when nil, 'maintenance', 'restart'
       'progress-bar-warning' #orange
