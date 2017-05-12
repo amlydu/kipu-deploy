@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root :to => 'instances#index'
+
   resources :logs
   resources :releases
   resources :release_mains
