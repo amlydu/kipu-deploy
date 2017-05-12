@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'loginfo', to: 'lambdas_controller#create'
+
   resources :logs
   resources :releases
   resources :release_mains
