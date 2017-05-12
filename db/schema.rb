@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511235427) do
+ActiveRecord::Schema.define(version: 20170512001227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,10 +48,13 @@ ActiveRecord::Schema.define(version: 20170511235427) do
     t.string "uuid"
     t.bigint "start_time"
     t.bigint "end_time"
+    t.bigint "instance_id"
+    t.index ["instance_id"], name: "index_releases_on_instance_id"
     t.index ["release_main_id"], name: "index_releases_on_release_main_id"
     t.index ["uuid"], name: "index_releases_on_uuid"
   end
 
   add_foreign_key "logs", "releases"
+  add_foreign_key "releases", "instances"
   add_foreign_key "releases", "release_mains"
 end
