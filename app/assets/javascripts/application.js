@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require rails-ujs
+//= require cable
 //= require jquery.dataTables
 //= require twitter/bootstrap
 //= require dataTables.bootstrap
