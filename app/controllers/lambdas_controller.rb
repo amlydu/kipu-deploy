@@ -1,5 +1,5 @@
 class LambdasController < ApplicationController
-  skip_before_filter  :verify_authenticity_token
+  skip_before_action  :verify_authenticity_token
 
   def create
     inst = Instance.find_or_create_by(name: params['app_name'])
