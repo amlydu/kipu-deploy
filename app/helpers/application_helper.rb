@@ -11,7 +11,23 @@ module ApplicationHelper
     when 'success', 'completed'
       'panel-green'
     else
-      'panel-yellow' #blue
+      'panel-yellow'
+    end
+  end
+
+  def timeline_circle_color_class(status = nil)
+    # color classes = panel-heading (blue), panel-green, panel-red, panel-yellow
+    status = status.downcase unless status.nil?
+
+    case status
+    when 'progress'
+      'info'
+    when 'error'
+      'danger'
+    when 'success', 'completed'
+      'success'
+    else
+      'warning'
     end
   end
 
