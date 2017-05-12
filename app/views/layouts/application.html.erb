@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Release the Kraken</a>
+          <div class="navbar-brand">Release the Kraken</div>
         </div>
         <!-- /.navbar-header -->
 
@@ -173,16 +173,21 @@
                 <!-- /input-group -->
               </li>
               <li>
-                <a href="#"><i class="fa fa-dashboard fa-fw"></i>Instance Dashboard</a>
+                <%= link_to instances_path do %>
+                  <i class="fa fa-dashboard fa-fw"></i>Instance Dashboard
+                <% end %>
               </li>
               <li>
-                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Release Main Dashboard <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
+                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Releases Information<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse in">
                   <li>
-                    <a href="#">Releases</a>
+                    <%= link_to 'Main Releases Dashboard', release_mains_path %>
                   </li>
                   <li>
-                    <a href="#">Release Logs</a>
+                    <%= link_to 'Releases', releases_path %>
+                  </li>
+                  <li>
+                    <%= link_to 'Release Logs', logs_path %>
                   </li>
                 </ul>
                 <!-- /.nav-second-level -->
