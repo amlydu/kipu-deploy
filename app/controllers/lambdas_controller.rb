@@ -11,7 +11,7 @@ class LambdasController < ApplicationController
 
     rmain = ReleaseMain.find_or_create_by(uuid: params['master_release_uuid'])
 
-    rel = rmain.create_with(total_steps: 'step_count').releases.find_or_create_by(uuid: params['app_release_uuid'], instance_id: inst.id)
+    rel = rmain.releases.create_with(total_steps: 'step_count').find_or_create_by(uuid: params['app_release_uuid'], instance_id: inst.id)
 
     rel.logs.create(lambda_name: params['lambda_type'], log: params['log'], time: params['time'], step_number: params['current_step'])
   end
