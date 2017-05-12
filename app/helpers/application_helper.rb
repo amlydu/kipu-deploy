@@ -4,14 +4,14 @@ module ApplicationHelper
     status = status.downcase unless status.nil?
 
     case status
-    when nil
-      'panel-yellow'
+    when 'progress'
+      'panel-primary'
     when 'error'
       'panel-red'
     when 'success', 'completed'
       'panel-green'
     else
-      'panel-heading' #blue
+      'panel-yellow' #blue
     end
   end
 
@@ -29,5 +29,10 @@ module ApplicationHelper
     else
       'progress-bar-danger' #red
     end
+  end
+
+  def progress_pct(release)
+    seconds = Time.current.to_i - release.created_at.to_i
+    seconds * 100 / 180
   end
 end

@@ -4,7 +4,7 @@ class InstancesController < ApplicationController
   # GET /instances
   # GET /instances.json
   def index
-    @instances = Instance.all
+    @instances = Instance.all.order(:created_at)
   end
 
   # GET /instances/1
