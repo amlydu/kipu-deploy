@@ -1,0 +1,10 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Static version of css will use Glyphicons sprites by default
+  =require twitter-bootstrap-static/sprites
+*/
+
+.progress {
+  background-color: #e4e1e1;
+}

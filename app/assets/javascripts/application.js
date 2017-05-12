@@ -14,4 +14,12 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require cable
+//= require jquery.dataTables
+//= require twitter/bootstrap
+//= require dataTables.bootstrap
+//= require dataTables.responsive
+//= require bootstrap
+//= require jquery.easing
+//= require metisMenu
+//= require sb-admin-2
 //= require_tree .
