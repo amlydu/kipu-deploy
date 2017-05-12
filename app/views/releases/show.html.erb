@@ -1,9 +1,101 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <h1 class="page-header">Instance: <%= @release.instance.name %></h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
 
-<p>
-  <strong>Release main:</strong>
-  <%= @release.uuid %>
-</p>
+<!-- /.panel -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <i class="fa fa-clock-o fa-fw"></i> Log Timeline
+  </div>
+    <!-- /.panel-heading -->
+  <div class="panel-body">
+    <ul class="timeline">
+      <% @release.logs.each_slice(2) do |release_logs| %>
+        <%
+           first_log  = release_logs[0]
+           second_log = release_logs[1]
+        %>
+        <li>
+          <div class="timeline-badge <%= timeline_circle_color_class(first_log.release.instance.deploy_status) %>"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h3 class="timeline-title">Log # <%= first_log.id %></h3>
+              <p><small class="text-muted"><i class="fa fa-clock-o"></i> Created at: <%= first_log.created_at %></small></p>
+              <hr>
+              <h4 class="list-heading">Log Details</h4>
+              <ul>
+                <li>
+                  Release ID: <%= first_log.release_id %>
+                </li>
+                <li>
+                  Lambda Name: <%= first_log.lambda_name %>
+                </li>
+                <li>
+                  Time: <%= first_log.time %>
+                </li>
+              </ul>
+            </div>
+          <br>
+          <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse<%=first_log.id%>Example" aria-expanded="false" aria-controls="collapseExample">
+              View Log Content:
+            </button>
+          </p>
+           <div class="timeline-body collapse" id="collapse<%=first_log.id%>Example">
+             <div class="card card-block">
+               <p>
+                <%= first_log.log %>
+               </p>
+             </div>
+           </div>
+          </div>
+        </li>
+        <% if second_log.present? %>
+          <li class="timeline-inverted">
+            <div class="timeline-badge <%= timeline_circle_color_class(first_log.release.instance.deploy_status) %>">
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h3 class="timeline-title">Log # <%= second_log.id %></h3>
+                <p><small class="text-muted"><i class="fa fa-clock-o"></i> Created at: <%= second_log.created_at %></small></p>
+                <hr>
+                <h4 class="list-heading">Log Details</h4>
+                <ul>
+                  <li>
+                    Release ID: <%= second_log.release_id %>
+                  </li>
+                  <li>
+                    Lambda Name: <%= second_log.lambda_name %>
+                  </li>
+                  <li>
+                    Time: <%= second_log.time %>
+                  </li>
+                </ul>
+              </div>
+              <br>
+              <p>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse<%=second_log.id%>Example" aria-expanded="false" aria-controls="collapseExample">
+                  View Log Content:
+                </button>
+              </p>
+              <div class="timeline-body collapse" id="collapse<%=second_log.id%>Example">
+                <div class="card card-block">
+                  <p>
+                    <%= second_log.log %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+    <!-- /.panel-body -->
+</div>
+<!-- /.panel -->
 
-<%= link_to 'Edit', edit_release_path(@release) %> |
-<%= link_to 'Back', releases_path %>
+<%= link_to 'Back', request.referrer %>

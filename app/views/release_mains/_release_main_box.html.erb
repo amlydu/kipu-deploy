@@ -1,0 +1,22 @@
+<div class="panel <%= instance_box_color_class('progress')%>">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-12 text-left">
+        <div class="huge">Release Main</div>
+        <div>
+          UUID: <%= release_main.uuid %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- place into partial for reuse -->
+  <div class="panel-footer">
+      <span class="pull-left"><%= link_to 'Show Details', release_main %></span>
+      <span class="pull-right">
+        <%= link_to release_main do %>
+          <i class="fa fa-arrow-circle-right"></i>
+        <% end %>
+      </span>
+      <div class="clearfix"></div>
+  </div>
+</div>

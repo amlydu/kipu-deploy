@@ -5,15 +5,6 @@
     <!-- /.col-lg-12 -->
 </div>
 
-<!-- <% @releases.each do |release| %>
-  <tr>
-    <td><%= release.release_main %></td>
-    <td><%= link_to 'Show', release %></td>
-    <td><%= link_to 'Edit', edit_release_path(release) %></td>
-    <td><%= link_to 'Destroy', release, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %> -->
-
 <!-- bootstrap table -->
 <div class="panel-body">
     <div class="row">
@@ -21,62 +12,22 @@
             <div class="table-responsive">
                 <table class="table table-bordered table-hover table-striped">
                     <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Status</th>
-                        </tr>
+                      <tr>
+                        <th>Release Master ID #</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Uuid</th>
+                      </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>3326</td>
-                            <td>10/21/2013</td>
-                            <td>3:29 PM</td>
-                            <td>Success</td>
-                        </tr>
-                        <tr>
-                            <td>3325</td>
-                            <td>10/21/2013</td>
-                            <td>3:20 PM</td>
-                            <td>Success</td>
-                        </tr>
-                        <tr>
-                            <td>3324</td>
-                            <td>10/21/2013</td>
-                            <td>3:03 PM</td>
-                            <td>Success</td>
-                        </tr>
-                        <tr>
-                            <td>3323</td>
-                            <td>10/21/2013</td>
-                            <td>3:00 PM</td>
-                            <td>Success</td>
-                        </tr>
-                        <tr>
-                            <td>3322</td>
-                            <td>10/21/2013</td>
-                            <td>2:49 PM</td>
-                            <td>Success</td>
-                        </tr>
-                        <tr>
-                            <td>3321</td>
-                            <td>10/21/2013</td>
-                            <td>2:23 PM</td>
-                            <td>Success</td>
-                        </tr>
-                        <tr>
-                            <td>3320</td>
-                            <td>10/21/2013</td>
-                            <td>2:15 PM</td>
-                            <td>Success</td>
-                        </tr>
-                        <tr>
-                            <td>3319</td>
-                            <td>10/21/2013</td>
-                            <td>2:13 PM</td>
-                            <td>Success</td>
-                        </tr>
+                      <% @releases.each do |release| %>
+                      <tr>
+                        <td><%= release.release_main_id %></td>
+                        <td><%= release.start_time %></td>
+                        <td><%= release.end_time %></td>
+                        <td><%= release.uuid %></td>
+                      </tr>
+                      <% end %>
                     </tbody>
                 </table>
             </div>
