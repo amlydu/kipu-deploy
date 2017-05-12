@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root :to => 'instances#index'
+  post 'loginfo', to: 'lambdas_controller#create'
 
   resources :logs
   resources :releases
