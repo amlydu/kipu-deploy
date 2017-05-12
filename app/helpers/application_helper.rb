@@ -32,7 +32,8 @@ module ApplicationHelper
   end
 
   def progress_pct(release)
-    seconds = Time.current.to_i - release.created_at.to_i
-    seconds * 100 / 180
+    total_steps = release.total_steps || 1
+    current_steps = release.logs.last.step_number || 1
+    current_steps * 100 / total_steps
   end
 end

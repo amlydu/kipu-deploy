@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512162807) do
+ActiveRecord::Schema.define(version: 20170512182848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170512162807) do
     t.string "lambda_name"
     t.text "log"
     t.bigint "time"
+    t.integer "step_number"
     t.index ["release_id"], name: "index_logs_on_release_id"
   end
 
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170512162807) do
     t.bigint "start_time"
     t.bigint "end_time"
     t.bigint "instance_id"
+    t.integer "total_steps"
     t.index ["instance_id"], name: "index_releases_on_instance_id"
     t.index ["release_main_id"], name: "index_releases_on_release_main_id"
     t.index ["uuid"], name: "index_releases_on_uuid"
