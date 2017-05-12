@@ -11,7 +11,7 @@ module ApplicationHelper
     when 'success', 'completed'
       'panel-green'
     else
-      'panel-heading' #blue
+      'panel-primary' #blue
     end
   end
 
