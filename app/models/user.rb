@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :confirmable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates_format_of :email, with: /\@kipusystems\.com/,
-                              message: "You need a kipusystems.com email!"
+  validates_format_of :email, with: /.*\@kipusystems\.com/,
+                              message: "You need a kipu email!"
 end
