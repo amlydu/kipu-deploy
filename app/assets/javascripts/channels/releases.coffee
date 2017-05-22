@@ -1,17 +1,17 @@
 $(document).ready ->
-  inst_id = $("#instance_data").data()['instanceId']
+  rel_id = $("#instance_data").data()['releaseId']
 
-  App.instance = App.cable.subscriptions.create {
-    channel: "InstanceChannel",
-    instance_id: inst_id
+  App.releases = App.cable.subscriptions.create {
+    channel: "ReleasesChannel",
+    release_id: rel_id
     },
     connected: ->
-      console.log("InstanceChannel")
+      console.log("ReleasesChannel")
       # Called when the subscription is ready for use on the server
 
     disconnected: ->
       # Called when the subscription has been terminated by the server
 
     received: (data) ->
-      $('#instance_' + data['data']['instance_id']).html data['data']['div']
+      $('#release_logs').prepend data['data']['div']
       # Called when there's incoming data on the websocket for this channel
