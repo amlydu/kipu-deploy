@@ -11,16 +11,9 @@
     <i class="fa fa-clock-o fa-fw"></i> Log Timeline
   </div>
     <!-- /.panel-heading -->
-  <div class="panel-body">
+  <div class="panel-body" id="release_logs">
     <% @release.logs.each do |release_log| %>
-      <p>
-        <small class="text-muted">
-          <%= release_log.created_at %> |
-          <%= release_log.lambda_name || "lambda_name"%> |
-          <%= release_log.time || Time.current %> |
-          <%= release_log.log %>
-        </small>
-      </p>
+      <%= render partial: 'release_row', locals: { log: release_log } %>
     <% end %>
   </div>
     <!-- /.panel-body -->
